@@ -5,6 +5,7 @@
 			"category": "linux",
 			"front": "find out the current directory",
 			"back": "pwd"
+		},
 		{
 			"suuid": "82Js23",
 			"category": "linux",

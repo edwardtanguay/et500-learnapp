@@ -4,10 +4,12 @@ import express, { NextFunction } from 'express';
 import { flashcardRouter } from './routers/flashcardrouter';
 import cors from 'cors';
 import { logger } from './middleware/logger';
+import { maintenanceMode } from './middleware/maintenanceMode';
 
 export const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(maintenanceMode);
 
 // declare global {
 // 	namespace Express {
@@ -27,17 +29,17 @@ app.use(cors());
 
 
 app.get('/', (req, res) => {
-	throw new Error('root problem');
-	// res.json({
-	// 	appName: "API for AppLearn version 0.1"
-	// })
+	// throw new Error('root problem');
+	res.json({
+		appName: "API for AppLearn version 0.1"
+	})
 });
 
-app.use(logger);
+// app.use(logger);
 app.use('/api/flashcards', flashcardRouter);
 
 app.use((err: Error, req: express.Request, res: express.Response, next: NextFunction) => {
-	console.log('error caught');
+	// console.log('error caught');
 	console.error(err.message)
 	res.status(500).send('We are currently experiencing technical difficulties. Try again at a later time, or call 423 23423 23 234.')
 })

@@ -1,8 +1,10 @@
 /* eslint-disable @typescript-eslint/no-namespace */
-import { NextFunction, Router } from 'express';
+import { Router } from 'express';
 import * as flashcardHandlers from '../handlers/flashcardHandlers';
 import { IFlashcard, INewFlashcard, IPatchFlashcard } from '../../../src/shared/interfaces';
 import { flashcardInfoRouter } from './flashcardInfoRouter';
+import { flashcardGetCleanAndValidate } from '../middleware/flashcardGetCleanAndValidate';
+import { flashcardPostCleanAndValidate } from '../middleware/flashcardPostCleanAndValidate copy';
 
 export const flashcardRouter = Router();
 
@@ -43,17 +45,17 @@ flashcardRouter.get('/', (_req, res) => {
 	}
 });
 
-flashcardRouter.get('/:suuid', (req: Express.Request, res: Express.Response, next: NextFunction) => {
-	console.log('suuid:', req.params.suuid)
-	next();
-})
+// flashcardRouter.get('/:suuid', (req: Express.Request, res: Express.Response, next: NextFunction) => {
+// 	console.log('suuid:', req.params.suuid)
+// 	next();
+// })
 
 // handler for the /user/:id path, which prints the user ID
 // app.get('/user/:id', (req, res, next) => {
 // 	res.send(req.params.id)
 // })
 
-flashcardRouter.get('/:suuid', (req, res) => {
+flashcardRouter.get('/:suuid', flashcardGetCleanAndValidate, (req, res) => {
 	const suuid = req.params.suuid;
 	const flashcard = flashcardHandlers.getOneFlashcard(suuid);
 	if (flashcard) {
@@ -63,7 +65,7 @@ flashcardRouter.get('/:suuid', (req, res) => {
 	}
 });
 
-flashcardRouter.post('/', async (req, res) => {
+flashcardRouter.post('/', flashcardPostCleanAndValidate, async (req, res) => {
 	const newFlashcard: INewFlashcard = req.body;
 	const flashcard = await flashcardHandlers.addFlashcard(newFlashcard);
 	res.status(201).json(flashcard);

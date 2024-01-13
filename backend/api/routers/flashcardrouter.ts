@@ -1,13 +1,57 @@
-import { Router } from 'express';
+/* eslint-disable @typescript-eslint/no-namespace */
+import { NextFunction, Router } from 'express';
 import * as flashcardHandlers from '../handlers/flashcardHandlers';
 import { IFlashcard, INewFlashcard, IPatchFlashcard } from '../../../src/shared/interfaces';
+import { flashcardInfoRouter } from './flashcardInfoRouter';
 
 export const flashcardRouter = Router();
 
+declare global {
+	namespace Express {
+		interface Request {
+			params: {
+				suuid: string;
+			};
+		}
+	}
+}
+
+// doesn't work
+// Object.defineProperty(Object.getPrototypeOf(global.Express.Request), 'params', {
+//   get: function () {
+//     if (!this._params) {
+//       this._params = { suuid: undefined };
+//     }
+//     return this._params;
+//   },
+//   set: function (value) {
+//     this._params = value;
+//   },
+//   configurable: true,
+//   enumerable: true,
+// });
+
+flashcardRouter.use('/info', flashcardInfoRouter);
+
 flashcardRouter.get('/', (_req, res) => {
-	const flashcards = flashcardHandlers.getAllFlashcards();
-	res.json(flashcards);
+	try {
+		const flashcards = flashcardHandlers.getAllFlashcards();
+		res.json(flashcards);
+	}
+	catch (e) {
+		throw new Error('')
+	}
 });
+
+flashcardRouter.get('/:suuid', (req: Express.Request, res: Express.Response, next: NextFunction) => {
+	console.log('suuid:', req.params.suuid)
+	next();
+})
+
+// handler for the /user/:id path, which prints the user ID
+// app.get('/user/:id', (req, res, next) => {
+// 	res.send(req.params.id)
+// })
 
 flashcardRouter.get('/:suuid', (req, res) => {
 	const suuid = req.params.suuid;

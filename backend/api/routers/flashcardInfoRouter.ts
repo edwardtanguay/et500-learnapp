@@ -19,6 +19,7 @@ flashcardInfoRouter.get('/stats', (req, res) => {
 });
 
 flashcardInfoRouter.get('/logs', (req, res) => {
+	
 	res.send(`
 <html>
 	<body>

@@ -4,8 +4,7 @@ import express, { NextFunction } from 'express';
 import { flashcardRouter } from './routers/flashcardrouter';
 import cors from 'cors';
 import { maintenanceMode } from './middleware/maintenanceMode';
-import { logger } from './middleware/logger';
-import morgan from 'morgan';
+import { logger, morganRouteLogger } from './middleware/logger';
 
 // const morganRouteLogger = morgan(
 // 	':method :url :status  1 :remote-addr 2 :response-time ms',
@@ -16,26 +15,6 @@ import morgan from 'morgan';
 // 	}
 // );
 
-const morganRouteLogger = morgan(
-	(tokens, req, res) => {
-		return JSON.stringify({
-			method: tokens.method(req, res),
-			url: tokens.url(req, res),
-			status: tokens.status(req, res),
-			content_length: tokens.res(req, res, 'content-length'),
-			response_time: tokens['response-time'](req, res),
-			remoteAddr: req.socket.remoteAddress
-		});
-	},
-	{
-		stream: {
-			write: (message) => {
-				const data = JSON.parse(message);
-				logger.http(`incoming-request`, data);
-			},
-		},
-	}
-);
 
 export const app = express();
 app.use(express.json());

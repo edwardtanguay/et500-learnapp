@@ -1,0 +1,5 @@
+{"level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","response_time":"2.060","status":"304","timestamp":"2024-01-13T23:15:37.544Z","url":"/api/flashcards"}
+{"level":"error","message":"This is some information showing an error.","timestamp":"2024-01-13T23:16:25.734Z"}
+{"level":"warn","message":"Here we are showing a warning.","timestamp":"2024-01-13T23:16:25.736Z"}
+{"level":"info","message":"This is just some info.","timestamp":"2024-01-13T23:16:25.737Z"}
+{"level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","response_time":"5.129","status":"304","timestamp":"2024-01-13T23:16:25.741Z","url":"/api/flashcards"}

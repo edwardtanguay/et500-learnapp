@@ -1,6 +1,7 @@
 import winston from 'winston';
 // const { combine, timestamp, printf, colorize, align } = winston.format;
 const { combine, timestamp, json } = winston.format;
+import morgan from 'morgan';
 
 // SIMPLE
 // export const logger = winston.createLogger({
@@ -34,8 +35,30 @@ export const logger = winston.createLogger({
 	// ],
 	transports: [
 		new winston.transports.File({
-			filename: 'app.log',
+			filename: 'backend/api/logs/app.log',
 			level: 'http',
 		}),
 	],
 });
+
+
+export const morganRouteLogger = morgan(
+	(tokens, req, res) => {
+		return JSON.stringify({
+			method: tokens.method(req, res),
+			url: tokens.url(req, res),
+			status: tokens.status(req, res),
+			content_length: tokens.res(req, res, 'content-length'),
+			response_time: tokens['response-time'](req, res),
+			remoteAddr: req.socket.remoteAddress
+		});
+	},
+	{
+		stream: {
+			write: (message) => {
+				const data = JSON.parse(message);
+				logger.http(`incoming-request`, data);
+			},
+		},
+	}
+);

@@ -38,3 +38,5 @@ export const isValidSuuid = (input: string): boolean => {
 	const suuidRegex = /^[a-zA-Z0-9]{6}$/;
 	return suuidRegex.test(input);
 }
+
+

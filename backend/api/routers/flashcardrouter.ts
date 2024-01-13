@@ -38,7 +38,7 @@ flashcardRouter.use('/info', flashcardInfoRouter);
 flashcardRouter.get('/', (_req, res) => {
 	try {
 		const flashcards = flashcardHandlers.getAllFlashcards();
-		res.json(flashcards);
+		res.status(200).json(flashcards);
 	}
 	catch (e) {
 		throw new Error('')

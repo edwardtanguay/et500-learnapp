@@ -3,13 +3,16 @@
 import express, { NextFunction } from 'express';
 import { flashcardRouter } from './routers/flashcardrouter';
 import cors from 'cors';
-import { logger } from './middleware/logger';
 import { maintenanceMode } from './middleware/maintenanceMode';
+import { logger } from './logger';
+
 
 export const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(maintenanceMode);
+
+
 
 // declare global {
 // 	namespace Express {
@@ -19,13 +22,14 @@ app.use(maintenanceMode);
 // 	}
 // }
 
-// app.use((req, res, next) => {
-// 	console.log('Request URL:', req.originalUrl)
-// 	next()
-// }, (req, res, next) => {
-// 	console.log('Request Type:', req.method)
-// 	next()
-// })
+app.use((req, res, next) => {
+	logger.error('This is some information showing an error.');
+	logger.warn('Here we are showing a warning.');
+	logger.info('This is just some info.');
+	logger.verbose('This is a very llong text that has a whole bunch of informationlong text that has a whole bunch of informationlong text that has a whole bunch of informationlong text that has a whole bunch of informationlong text that has a whole bunch of informationlong text that has a whole bunch of informationong text that has a whole bunch of information.');
+	logger.debug('test = 0');
+	next();
+});
 
 
 app.get('/', (req, res) => {

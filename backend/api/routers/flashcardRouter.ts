@@ -4,7 +4,7 @@ import * as flashcardHandlers from '../handlers/flashcardHandlers';
 import { IFlashcard, INewFlashcard, IPatchFlashcard } from '../../../src/shared/interfaces';
 import { flashcardInfoRouter } from './flashcardInfoRouter';
 import { flashcardGetCleanAndValidate } from '../middleware/flashcardGetCleanAndValidate';
-import { flashcardPostCleanAndValidate } from '../middleware/flashcardPostCleanAndValidate copy';
+import { flashcardPostCleanAndValidate } from '../middleware/flashcardPostCleanAndValidate';
 
 export const flashcardRouter = Router();
 

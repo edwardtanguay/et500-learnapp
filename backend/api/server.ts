@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-namespace */
 import express, { NextFunction } from 'express';
-import { flashcardRouter } from './routers/flashcardRouters';
+import { flashcardRouter } from './routers/flashcardRouter';
 import cors from 'cors';
 import { maintenanceMode } from './middleware/maintenanceMode';
 import { logger, morganRouteLogger } from './middleware/logger';

@@ -26,7 +26,7 @@ import morgan from 'morgan';
 
 // LOG FILE
 export const logger = winston.createLogger({
-	level: process.env.LOG_LEVEL || 'http',
+	level: process.env.LOG_LEVEL || 'debug',
 	format: combine(timestamp(), json()),
 	// transports: [
 	// 	new winston.transports.File({
@@ -36,7 +36,7 @@ export const logger = winston.createLogger({
 	transports: [
 		new winston.transports.File({
 			filename: 'backend/api/logs/app.log',
-			level: 'http',
+			level: 'debug',
 		}),
 	],
 });
@@ -48,9 +48,9 @@ export const morganRouteLogger = morgan(
 			method: tokens.method(req, res),
 			url: tokens.url(req, res),
 			status: tokens.status(req, res),
-			content_length: tokens.res(req, res, 'content-length'),
-			response_time: tokens['response-time'](req, res),
-			remoteAddr: req.socket.remoteAddress
+			contentLength: String(tokens.res(req, res, 'content-length')),
+			responseTime: tokens['response-time'](req, res),
+			remoteAddr: String(req.socket.remoteAddress)
 		});
 	},
 	{

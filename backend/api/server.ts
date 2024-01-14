@@ -32,14 +32,14 @@ app.use(morganRouteLogger);
 // 	}
 // }
 
-app.use((req, res, next) => {
-	logger.error('This is some information showing an error.');
-	logger.warn('Here we are showing a warning.');
-	logger.info('This is just some info.');
-	logger.verbose('This is a very long text that has a whole bunch of information. This would be for example a dump of some information that might help in debugging, etc.');
-	logger.debug('test = 0');
-	next();
-});
+// app.use((req, res, next) => {
+// 	logger.error('This is some information showing an error.');
+// 	logger.warn('Here we are showing a warning.');
+// 	logger.info('This is just some info.');
+// 	logger.verbose('This is a very long text that has a whole bunch of information. This would be for example a dump of some information that might help in debugging, etc.');
+// 	logger.debug('test = 0');
+// 	next();
+// });
 
 
 app.get('/', (req, res) => {

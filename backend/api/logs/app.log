@@ -1,5 +1,17 @@
-{"level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","response_time":"2.060","status":"304","timestamp":"2024-01-13T23:15:37.544Z","url":"/api/flashcards"}
-{"level":"error","message":"This is some information showing an error.","timestamp":"2024-01-13T23:16:25.734Z"}
-{"level":"warn","message":"Here we are showing a warning.","timestamp":"2024-01-13T23:16:25.736Z"}
-{"level":"info","message":"This is just some info.","timestamp":"2024-01-13T23:16:25.737Z"}
-{"level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","response_time":"5.129","status":"304","timestamp":"2024-01-13T23:16:25.741Z","url":"/api/flashcards"}
+
+{"contentLength":"552","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","responseTime":"3.882","status":"200","timestamp":"2024-01-14T00:13:42.635Z","url":"/api/flashcards/info/logs"}
+{"contentLength":"150","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","responseTime":"1.643","status":"404","timestamp":"2024-01-14T00:13:42.679Z","url":"/favicon.ico"}
+{"contentLength":"843","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","responseTime":"10.916","status":"200","timestamp":"2024-01-14T00:13:43.592Z","url":"/api/flashcards/info/logs"}
+{"contentLength":"150","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","responseTime":"0.500","status":"404","timestamp":"2024-01-14T00:13:43.627Z","url":"/favicon.ico"}
+{"contentLength":"1135","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","responseTime":"4.240","status":"200","timestamp":"2024-01-14T00:13:44.385Z","url":"/api/flashcards/info/logs"}
+{"contentLength":"1426","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","responseTime":"11.297","status":"200","timestamp":"2024-01-14T00:13:45.075Z","url":"/api/flashcards/info/logs"}
+{"contentLength":"1718","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","responseTime":"5.274","status":"200","timestamp":"2024-01-14T00:13:45.749Z","url":"/api/flashcards/info/logs"}
+{"contentLength":"2009","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","responseTime":"12.982","status":"200","timestamp":"2024-01-14T00:13:46.328Z","url":"/api/flashcards/info/logs"}
+{"contentLength":"1134","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","responseTime":"0.419","status":"200","timestamp":"2024-01-14T00:13:49.021Z","url":"/api/flashcards"}
+{"contentLength":"undefined","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","responseTime":"0.217","status":"304","timestamp":"2024-01-14T00:13:49.306Z","url":"/api/flashcards"}
+{"contentLength":"2863","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","responseTime":"16.992","status":"200","timestamp":"2024-01-14T00:13:51.034Z","url":"/api/flashcards/info/logs"}
+{"contentLength":"150","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","responseTime":"0.419","status":"404","timestamp":"2024-01-14T00:13:51.067Z","url":"/favicon.ico"}
+{"contentLength":"3155","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","responseTime":"15.223","status":"200","timestamp":"2024-01-14T00:14:32.406Z","url":"/api/flashcards/info/logs"}
+{"contentLength":"150","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","responseTime":"1.605","status":"404","timestamp":"2024-01-14T00:14:32.449Z","url":"/favicon.ico"}
+{"contentLength":"3447","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","responseTime":"18.817","status":"200","timestamp":"2024-01-14T00:14:49.968Z","url":"/api/flashcards/info/logs"}
+{"contentLength":"150","level":"http","message":"incoming-request","method":"GET","remoteAddr":"::ffff:127.0.0.1","responseTime":"0.435","status":"404","timestamp":"2024-01-14T00:14:50.001Z","url":"/favicon.ico"}

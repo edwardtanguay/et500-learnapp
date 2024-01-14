@@ -68,3 +68,14 @@ export type IApiStatus = {
 	status: "live" | "maintenanceMode",
 	whenLiveAgainDateTime: string
 }
+
+export interface ILogItem {
+	timestamp: string;
+	level: string;
+	message: string;
+	method: string;
+	status: string;
+	remoteAddr: string;
+	url: string;
+	responseTime: string;
+}

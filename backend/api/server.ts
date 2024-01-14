@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-namespace */
 import express, { NextFunction } from 'express';
-import { flashcardRouter } from './routers/flashcardrouter';
+import { flashcardRouter } from './routers/flashcardRouters';
 import cors from 'cors';
 import { maintenanceMode } from './middleware/maintenanceMode';
 import { logger, morganRouteLogger } from './middleware/logger';
@@ -53,7 +53,6 @@ app.get('/', (req, res) => {
 app.use('/api/flashcards', flashcardRouter);
 
 app.use((err: Error, req: express.Request, res: express.Response, next: NextFunction) => {
-	// console.log('error caught');
-	console.error(err.message)
+	console.error(err.message) // this will later be written to our logs
 	res.status(500).send('We are currently experiencing technical difficulties. Try again at a later time, or call 423 23423 23 234.')
-})
+});
